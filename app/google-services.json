@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "339612551579",
+    "firebase_url": "https://dtu-face-app-login.firebaseio.com",
+    "project_id": "dtu-face-app-login",
+    "storage_bucket": "dtu-face-app-login.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:339612551579:android:32a642ba60a0b36177393e",
+        "android_client_info": {
+          "package_name": "com.example.dtufaceapplogin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "339612551579-6k2612t7kc8lej87r1dtlmbe73d48kg5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dtufaceapplogin",
+            "certificate_hash": "b31db8b525c1e72cc370354cf596051e5920c5a5"
+          }
+        },
+        {
+          "client_id": "339612551579-0php67au6lf9cbbqdeq900msopjqnsuf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZI7SRr10zm5K7MEvVR32p3v-yExfX03g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "339612551579-0php67au6lf9cbbqdeq900msopjqnsuf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
