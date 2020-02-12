@@ -33,16 +33,6 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager mViewPager;
 
 
-    //Firebase
-    FirebaseDatabase database;
-    DatabaseReference users;
-
-    EditText editemail, editpassword, editrollno, editphone;
-    Button btnsignup;
-
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,43 +48,6 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
-
-        //Firebase
-
-        database = FirebaseDatabase.getInstance();
-        users = database.getReference("Users");
-
-        editemail = (EditText) findViewById(R.id.username);
-        editpassword = (EditText) findViewById(R.id.password);
-        editrollno = (EditText) findViewById(R.id.rollno);
-        editphone = (EditText) findViewById(R.id.phone);
-
-        btnsignup = (Button) findViewById(R.id.login);
-
-        btnsignup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final User user = new User(editemail.getText().toString(), editpassword.getText().toString(), editrollno.getText().toString(), editphone.getText().toString());
-
-                users.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if(dataSnapshot.child(user.getEmail()).exists()) {
-                            Toast.makeText(MainActivity.this, "Already Registered", Toast.LENGTH_LONG).show();
-                        } else{
-                            users.child(user.getEmail()).setValue(user);
-                            Toast.makeText(MainActivity.this, "Registered Successfully !", Toast.LENGTH_LONG).show();
-
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-                        //NULL
-                    }
-                });
-            }
-        });
 
 
     }
