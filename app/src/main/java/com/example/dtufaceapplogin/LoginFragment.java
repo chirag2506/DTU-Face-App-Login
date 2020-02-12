@@ -2,6 +2,8 @@ package com.example.dtufaceapplogin;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,6 +49,9 @@ public class LoginFragment extends Fragment {
 
         btnLogin = (Button) view.findViewById(R.id.login);
 
+        editusername.addTextChangedListener(loginTextWatch);
+        editpassword.addTextChangedListener(loginTextWatch);
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,4 +93,28 @@ public class LoginFragment extends Fragment {
         Intent s = new Intent(getActivity(), LoggedInActivity.class);
         startActivity(s);
     }
+
+    private TextWatcher loginTextWatch = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            String usernameInput = editusername.getText().toString().trim();
+            String passwordInput = editpassword.getText().toString().trim();
+
+            btnLogin.setEnabled(!usernameInput.isEmpty()
+                          && !passwordInput.isEmpty());
+
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
+        }
+    };
 }
