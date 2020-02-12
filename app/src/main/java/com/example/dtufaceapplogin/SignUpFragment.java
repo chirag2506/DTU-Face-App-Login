@@ -1,6 +1,8 @@
 package com.example.dtufaceapplogin;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,6 +55,13 @@ public class SignUpFragment extends Fragment {
 
         btnsignup = (Button) view.findViewById(R.id.signup);
 
+        editemail.addTextChangedListener(loginTextWatch);
+        editusername.addTextChangedListener(loginTextWatch);
+        editpassword.addTextChangedListener(loginTextWatch);
+        editphone.addTextChangedListener(loginTextWatch);
+        editrollno.addTextChangedListener(loginTextWatch);
+
+
         btnsignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -86,5 +95,35 @@ public class SignUpFragment extends Fragment {
         return view;
     }
 
+
+    private TextWatcher loginTextWatch = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            String emailInput = editemail.getText().toString().trim();
+            String usernameInput = editusername.getText().toString().trim();
+            String passwordInput = editpassword.getText().toString().trim();
+            String phoneInput = editphone.getText().toString().trim();
+            String rollnoInput = editrollno.getText().toString().trim();
+
+            btnsignup.setEnabled(!emailInput.isEmpty()
+                                && !usernameInput.isEmpty()
+                                && !passwordInput.isEmpty()
+                                && !phoneInput.isEmpty()
+                                && !rollnoInput.isEmpty());
+
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
+        }
+    };
 
 }
