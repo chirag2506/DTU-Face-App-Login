@@ -43,17 +43,6 @@ public class LoggedInActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 dispatchTakeVideoIntent();
-//
-//                //HANDLE PERMISSION
-//                if(Build.VERSION.SDK_INT < Build.VERSION_CODES.M){
-//                    handlePermission();
-//                }
-//                //PERMISSION HANDLED
-//
-//                Intent s = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//
-//                startActivityForResult(s, 0);
-
 
             }
         });
@@ -68,48 +57,5 @@ public class LoggedInActivity extends AppCompatActivity {
         }
     }
 
-
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//
-//        if(requestCode == CAMERA_REQUEST_CODE && resultCode == RESULT_OK){
-//
-//            Uri uri = data.getData();
-//            StorageReference filepath = mStorage.child("Photos").child(uri.getLastPathSegment());
-//
-//            filepath.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-//                @Override
-//                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-//
-//                    Toast.makeText(LoggedInActivity.this, "Upload Finish", Toast.LENGTH_LONG).show();
-//
-//                }
-//            });
-//
-//        }
-//
-//    }
-//
-//    //HANDLING PERMISSION OF CAMERA FOR API > MARSHMALLOW
-//
-//    private void handlePermission() {
-//        if(ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
-//            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 1000);
-//        }
-//    }
-//
-//    @Override
-//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-//
-//        switch (requestCode){
-//            case 1000:
-//                for(int i = 0; i < permissions.length; i++){
-//                    String permission = permissions[i];
-//                    if(grantResults[i] == PackageManager.PERMISSION_DENIED){
-//                        boolean showRationale = ActivityCompat.shouldShowRequestPermissionRationale(this, permission);
-//                    }
-//            }
-//        }
-//    }
+    
 }
